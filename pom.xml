@@ -168,7 +168,7 @@
           </generateGitPropertiesFilename>
         </configuration>
       </plugin>
-        
+
       <plugin>
         <groupId>ro.isdc.wro4j</groupId>
         <artifactId>wro4j-maven-plugin</artifactId>
@@ -198,6 +198,32 @@
       </plugin>
     </plugins>
   </build>
+  <!-- JaCoCo configuration -->
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.0</version>
+            <executions>
+                <execution>
+                    <id>default-prepare-agent</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>default-report</id>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        [...]
+    </plugins>
+</builds>
   <reporting>
     <plugins>
       <!-- integrate maven-cobertura-plugin to project site -->
@@ -213,30 +239,6 @@
         </configuration>
       </plugin>
     </plugins>
-      <plugin>
-  <groupId>org.jacoco</groupId>
-  <artifactId>jacoco-maven-plugin</artifactId>
-  <version>${jacoco.plugin.version}</version>
-  <configuration>
-    <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-    <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
-  </configuration>
-  <executions>
-    <execution>
-      <id>jacoco-initialize</id>
-      <goals>
-        <goal>prepare-agent</goal>
-      </goals>
-    </execution>
-    <execution>
-      <id>jacoco-site</id>
-      <phase>package</phase>
-      <goals>
-        <goal>report</goal>
-      </goals>
-    </execution>
-  </executions>
-</plugin>
   </reporting>
 
 </project>
