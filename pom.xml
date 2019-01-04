@@ -196,12 +196,7 @@
           </dependency>
         </dependencies>
       </plugin>
-    </plugins>
-  </build>
-  <!-- JaCoCo configuration -->
-<build>
-    <plugins>
-        <plugin>
+	  <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.0</version>
@@ -221,9 +216,9 @@
                 </execution>
             </executions>
         </plugin>
-        [...]
     </plugins>
-</builds>
+  </build>
+ 
   <reporting>
     <plugins>
       <!-- integrate maven-cobertura-plugin to project site -->
